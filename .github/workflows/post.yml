@@ -3,7 +3,7 @@ name: Tweet image
 on:
   workflow_dispatch:
   schedule:
-    - cron: '7 */1 * * *'
+    - cron: '15 * * * *'
 
 
 jobs:
