@@ -35,7 +35,5 @@ if __name__ == '__main__':
     api = get_api()
     images_absolute_path = get_images_path()
 
-    while True:
-        image = get_random_image(images_absolute_path)
-        post_image(api, image)
-        time.sleep(3600)
+    image = get_random_image(images_absolute_path)
+    post_image(api, image)
