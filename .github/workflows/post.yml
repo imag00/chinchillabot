@@ -1,0 +1,28 @@
+name: Tweet image
+
+on:
+  schedule:
+    - cron: "0 */1 * * *"
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.11"
+          architecture: "x64"
+      - name: Run script (tweet)
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          API_SECRET: ${{ secrets.API_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+        run: |
+          pip install tweepy
+          python bot.py
